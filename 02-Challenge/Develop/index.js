@@ -9,7 +9,6 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-
 inquirer
 .prompt ([
     {
@@ -37,7 +36,7 @@ inquirer
       },
       {
         type: 'input',
-        message: 'Please command should be run to run test?',
+        message: 'What command should be use to run test?',
         name: 'test',
       },  
       {

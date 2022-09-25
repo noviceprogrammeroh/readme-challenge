@@ -38,7 +38,7 @@ return `
 ${data.title};
 
 ## License
-The application is covered by license : ${answers.license}.
+The application is covered by license : ${data.license}.
 <br />
 ![badge](https://img.shields.io/badge/license-${data.license}-brightgreen)<br />
 
