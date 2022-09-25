@@ -1,43 +1,14 @@
 
+// TODO: Create a function to initialize app
 function init() {
+
+
   // TODO: Include packages needed for this application
+const generateMarkdown = require('./utils/generateMarkdown.js')
 const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-// const questions = [];
-
-const generateReadMe = ({ title, description, installation, usage, test, license, contribution, email }) =>
-`
-#Project ${title};
-## Description ${description};
-
-## Table of Contents
-- [installation](#installation)
-- [usage](#usage)
-- [License](#license)
-- [Badges](#Badges};
-- [Tests](#Tests};
-- [Contribution](#Contribution)
-
-##installation
-${installation}
-
-## License 
-${license}
-
-## Usage 
-${usage}
-
-## Badges
-
-## How to Contribute
-${contribution}
-
-## Tests 
-${test}
-
-`;
 
 inquirer
 .prompt ([
@@ -68,12 +39,19 @@ inquirer
         type: 'input',
         message: 'Please command should be run to run test?',
         name: 'test',
-      },
-
+      },  
       {
-        type: 'input',
+        type: 'list',
         message: 'What kind of license your project have?',
         name: 'license',
+        choices:[
+          'No license',
+          'Mozilla Public License 2.0',
+          'Apache License 2.0', 
+          'MIT License', 
+          'Boost Software License 1.0', 
+          'The Unlicense'      
+      ],
       },
 
       {
@@ -93,19 +71,21 @@ inquirer
         message: 'Enter linkedin?',
         name: 'linkedin',
       }
-
-
 ])
-.then((answers) => {
-    const htmlContent = generateReadMe(answers)
-    // TODO: Create a function to write README file
-    fs.writeFile('README.md', htmlContent, (err) =>
-    err ? console.log(err) : console.log('Successfully created index.html!')
-  );
+.then((data) => {
+    const htmlContent = generateMarkdown(data);
 
+    // TODO: Create a function to write README file
+    writeToFile('README.md', htmlContent);
 });
 
-// TODO: Create a function to initialize app
+
+function writeToFile(fileName, htmlContent) {
+  fs.writeFile(fileName, htmlContent, (err) =>
+  err ? console.log(err) : console.log('Successfully created readme file!')
+);
+}
+
 }
 
 // Function call to initialize app
