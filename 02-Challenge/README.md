@@ -1,4 +1,5 @@
 # Professional README Generator
+This application was written to automate a readme file using node.
 
 
 ## Acceptance Criteria
@@ -26,8 +27,8 @@ THEN I am taken to the corresponding section of the README
 ![This is an image](./Develop/images/second_screenshot.jpg)
 
 # Video
-![This is an image](./Develop/images/readme_genarator_application.jpg)
 
+![Video link](.Develop/demo_video/Readme%20file%20generator%20app%202.mp4)
 
 ## Links ##
 
